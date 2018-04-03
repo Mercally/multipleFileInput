@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Importa jquery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
+
+    <!--Importa bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!--Importa font awesome-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!--Importa multipleFileInput-->
+    <script src="Vendor\multipleFileInput-v1.1\jquery.plugin.multipleFileInput.js" type="text/javascript"></script>
+    <link href="Vendor\multipleFileInput-v1.1\jquery.plugin.multipleFileInput.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+     <div class="container body-content">
+        <br />
+        <br />
+		<ul>
+		    <li><h4>Inicialización rápida</h4></li>
+		</ul>
+        
+		<samp>var <var>input1</var> = $('#input-1').multipleFileInput();</samp>
+        <br />
+        
+        <div id="input-1"></div>
+            
+        <br />
+		<ul>
+		    <li><h4>Deshabilitar subida de archivos</h4></li>
+		</ul>
+        
+		<samp>var <var>input2</var> = $('#input-2').multipleFileInput(<br />
+            {<br />
+                "enableUpload": false  <br />
+            });<br />
+        </samp>
+        <br />
+        
+        <div id="input-2"></div>
+        <br />
+		<ul>
+		    <li><h4>Deshabilitar descarga de archivos</h4></li>
+        </ul>
+		<samp>var <var>input3</var> = $('#input-2').multipleFileInput(<br />
+            {<br />
+                "enableDownload": false  <br />
+                "defaultFiles": [{<br />
+                    "size":"1233",<br />
+                    "name":"docTest.doc",<br />
+                    "downloadUrl":"/Files/Download/docTest.doc",<br />
+                    "path":"/Files/Download/",<br />
+                    "removed": false<br />
+                },<br />
+                {<br />
+                    "size":"12323",<br />
+                    "name":"imgTest.png",<br />
+                    "downloadUrl":"/Files/Download/imgTest.png",<br />
+                    "path":"/Files/Download/",<br />
+                    "removed": false<br />
+                }]<br />
+            });<br />
+        </samp>
+        <br />
+        
+        <div id="input-3"></div>
+        <br />
+        
+        <br />
+		<ul>
+		    <li><h4>Obtener archivos</h4></li>
+		</ul>
+        <br />
+        <samp>
+            var <var>files</var> = $('#input-1').multipleFileInput().getArrFiles();<br /><br />
+            alert(files.map(function(item){<br />
+                return item["name"];<br />
+            }).join(", "));<br />
+        </samp>
+        <br />
+        <button onclick="getSelectedFiles();" class="btn btn-default">Obtener archivos</button>
+        <br />
+        <hr />
+        <footer>
+            <p>&copy; Josué Mercadillo - 2018</p>
+        </footer>
+    </div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        var input = $('#input-1').multipleFileInput();
+
+        var input2 = $('#input-2').multipleFileInput({
+            "enableUpload": false
+        });
+
+        var input3 = $('#input-3').multipleFileInput({
+            "enableDownload": false,
+            "defaultFiles": [{
+                    "size":"1233",
+                    "name":"docTest.doc",
+                    "downloadUrl":"/Files/Download/docTest.doc",
+                    "path":"/Files/Download/",
+                    "removed": false
+                },
+                {
+                    "size":"12323",
+                    "name":"imgTest.png",
+                    "downloadUrl":"/Files/Download/imgTest.png",
+                    "path":"/Files/Download/",
+                    "removed": false
+                }]
+        });
+    });
+
+    function getSelectedFiles(){
+        var files = $('#input-3').multipleFileInput().getArrFiles();
+        alert(files.map(function(item){
+            return item["name"];
+        }).join(", "));
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿.drop-zone-files-uploaded {
+    border-style: dashed;
+    padding: 50px;
+    text-align: center;
+    font-size: large;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.dragover {
+    border-style: dashed;
+    border-color: darkgray;
+    color: darkgray;
+    padding: 60px;
+    text-align: center;
+    font-size: large;
+}
+
+.table-files-uploaded-body tr td {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: lightgray 1px solid;
+}
+
+
+.table-files-uploaded-tbody-div {
+    border: lightgray 1px solid;
+    max-height: 300px;
+    padding: 0px;
+    overflow: auto;
+}
+
+.td-center {
+    text-align: center;
+    width: 10%;
+}
+
+.td-center-x2 {
+    text-align: center;
+    width: 20%;
+}
