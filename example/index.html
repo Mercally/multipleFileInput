@@ -87,46 +87,21 @@
         <br />
         <button onclick="getSelectedFiles();" class="btn btn-default">Obtener archivos</button>
         <br />
+        <br />
+		<ul>
+		    <li><h4>Destruir</h4></li>
+		</ul>
+        <br />
+        <button onclick="destroyMultipleInputFile();" class="btn btn-default">Destruir input</button>
+        <button onclick="initialMultipleInputFile();" class="btn btn-default">Iniciar input</button>
+        <br />
+        <br />
         <hr />
         <footer>
             <p>&copy; Josué Mercadillo - 2018</p>
         </footer>
     </div>
 
-<script type="text/javascript">
-
-    $(document).ready(function(){
-        var input = $('#input-1').multipleFileInput();
-
-        var input2 = $('#input-2').multipleFileInput({
-            "enableUpload": false
-        });
-
-        var input3 = $('#input-3').multipleFileInput({
-            "enableDownload": false,
-            "defaultFiles": [{
-                    "size":"1233",
-                    "name":"docTest.doc",
-                    "downloadUrl":"/Files/Download/docTest.doc",
-                    "path":"/Files/Download/",
-                    "removed": false
-                },
-                {
-                    "size":"12323",
-                    "name":"imgTest.png",
-                    "downloadUrl":"/Files/Download/imgTest.png",
-                    "path":"/Files/Download/",
-                    "removed": false
-                }]
-        });
-    });
-
-    function getSelectedFiles(){
-        var files = $('#input-3').multipleFileInput().getArrFiles();
-        alert(files.map(function(item){
-            return item["name"];
-        }).join(", "));
-    }
-</script>
+    <script src="Vendor\example.js" type="text/javascript"></script>
 </body>
 </html>

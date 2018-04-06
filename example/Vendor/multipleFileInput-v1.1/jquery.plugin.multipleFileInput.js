@@ -105,6 +105,7 @@
                     $('body').on('click', 'button.' + elementId + '-btnRemoveFile', function () {
                         var index = parseInt($(this).attr('data-file-index'));
                         var file = arrFiles[index];
+                        console.log(file);
                         currentSizeForAllFiles -= file.size;
                         if (file.hasOwnProperty('removed')) {
                             file.removed = true;
@@ -215,12 +216,34 @@
                     return arrFiles;
                 }
     
-                _$this.getArrOldFiles = function () {
+                _$this.getArrOldFiles = function() {
                     return oldFiles;
                 }
     
-                _$this.getArrNewFiles = function () {
+                _$this.getArrNewFiles = function() {
                     return newFiles;
+                }
+
+                _$this.destroy = function(){
+                    var elementId = $(this).attr("id");
+                    for(var i = 0; i < ListInputs.length; i++){
+                        if(ListInputs[i].attr("id") == elementId){
+                            ListInputs.splice(i, 1); // eliminando instancia
+                            // unbind
+                            $('button.' + elementId + '-btnRemoveFile').off();
+                            $('button.' + elementId + '-btnRemoveFile').unbind();
+
+                            $('a.' + elementId + '-btnDownloadFile').off();
+                            $('a.' + elementId + '-btnDownloadFile').unbind();
+                            
+                            $('#'+ elementId + '-drop-zone-files-uploaded').off();
+                            $('#'+ elementId + '-drop-zone-files-uploaded').unbind();
+
+                            // empty html
+                            $(this).empty();
+                            return;
+                        }
+                    }
                 }
 
                 function addBatchFiles(files) {
